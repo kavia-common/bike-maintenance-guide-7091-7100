@@ -1,0 +1,126 @@
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(59,130,246,0.10), #f9fafb 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 2px 8px 0 rgba(100,116,139,0.05);
+  position: relative;
+  z-index: 20;
+}
+
+.navbar-mobile {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  justify-content: start;
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  color: #3b82f6;
+  font-weight: 700;
+  margin-left: 0.75rem;
+  text-shadow: 0 2px 6px rgba(59,130,246,0.07);
+}
+
+/* Hamburger icon button */
+.navbar-hamburger {
+  background: none;
+  border: none;
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+}
+
+.navbar-link button {
+  background: none;
+  border: none;
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.13s, color 0.13s;
+}
+
+.navbar-link.active button,
+.navbar-link button:focus {
+  background: linear-gradient(95deg, #3b82f6 0 65%, #06b6d4 120%);
+  color: #fff;
+  font-weight: 700;
+}
+
+.navbar-link button:hover {
+  background: #e5edfb;
+  color: #3b82f6;
+}
+
+/* Sidebar overlay for mobile */
+.navbar-sidebar-overlay {
+  position: fixed;
+  z-index: 21;
+  left: 0; top: 0; bottom: 0; right: 0;
+  background: rgba(17,24,39,0.18);
+  cursor: pointer;
+}
+
+/* Responsive: Collapse nav into sidebar menu on mobile */
+@media (max-width: 850px) {
+  .navbar-links {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1rem 1rem 1.5rem;
+    gap: 0.5rem;
+    box-shadow: 2px 0 24px 0 rgba(100,116,139,0.13);
+    transform: translateX(-110%);
+    opacity: 1;
+    pointer-events: none;
+    transition: transform 0.24s cubic-bezier(.17, .67, .83, .67);
+    z-index: 50;
+  }
+  .navbar-links.open {
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .navbar-mobile {
+    display: flex;
+  }
+}
+
+@media (min-width: 851px) {
+  .navbar-mobile {
+    display: none;
+  }
+  .navbar-links {
+    justify-content: center;
+    flex-direction: row;
+    position: static;
+    width: 100%;
+    height: auto;
+    background: none;
+    padding: 0.2rem 1.5rem 0.2rem 2rem;
+    box-shadow: none;
+  }
+}
+

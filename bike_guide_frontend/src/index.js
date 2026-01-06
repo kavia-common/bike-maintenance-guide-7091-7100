@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './components/NavigationBar.css';
+import './components/SearchBox.css';
+import './components/GuideSection.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
